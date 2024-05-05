@@ -6,12 +6,15 @@ const fetchPromises = itemNumbers.map(num =>
 );
 
 Promise.all(fetchPromises)
-  .then(items => items.map(item => item.title))
-  .then(titles => {
+  .then(items => {
     const ul = document.createElement('ul'); // Create a new <ul> element
-    titles.forEach(title => {
+    items.forEach(item => {
       const li = document.createElement('li'); // Create a new <li> element
-      li.textContent = title; // Set the text content of the <li> element to the title
+      const a = document.createElement('a'); // Create a new <a> element
+      a.textContent = item.title; // Set the text content of the <a> element to the title
+      a.href = item.url; // Set the href attribute of the <a> element to the URL of the item
+      a.target = '_blank'; // Open the link in a new tab
+      li.appendChild(a); // Append the <a> element to the <li> element
       ul.appendChild(li); // Append the <li> element to the <ul> element
     });
     document.body.appendChild(ul); // Append the <ul> element to the body of the HTML document
