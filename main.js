@@ -13,7 +13,6 @@ Promise.all(fetchPromises)
       const a = document.createElement('a'); // Create a new <a> element
       a.textContent = item.title; // Set the text content of the <a> element to the title
       a.href = item.url; // Set the href attribute of the <a> element to the URL of the item
-      a.target = '_blank'; // Open the link in a new tab
       li.appendChild(a); // Append the <a> element to the <li> element
       ul.appendChild(li); // Append the <li> element to the <ul> element
     });
